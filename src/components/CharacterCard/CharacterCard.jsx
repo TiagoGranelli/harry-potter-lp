@@ -13,6 +13,7 @@ function CharacterCard({ character }) {
       <p>Date of Birth: {character.dateOfBirth || "Unknown"}</p>
       <p>House: {character.house || "Unknown"}</p>
       <p>Patronus: {character.patronus || "Don't have"}</p>
+      <p>Ancestry: {character.ancestry || "Unknown"}</p>
       <p>Actor: {character.actor}</p>
       <p>Character status: {character.alive ? "Alive" : "Deceased"}</p>
     </div>
