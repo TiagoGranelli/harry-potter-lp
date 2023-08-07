@@ -4,7 +4,7 @@ import "./CharacterCard.scss";
 function CharacterCard({ character }) {
   return (
     <div className="character-card">
-      <img src={character.image} alt={character.name} />
+      <img src={character.image || "/fallback.jpg"} alt={character.name} />
       <h2>{character.name}</h2>
       <p>Date of Birth: {character.dateOfBirth}</p>
       <p>House: {character.house}</p>
