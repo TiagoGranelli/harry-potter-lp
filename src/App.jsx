@@ -15,12 +15,14 @@ function App() {
     <div className="App">
       <h1>Harry Potter Characters</h1>
       <div className="characters-container">
-        {characters.map((character, index) => (
-          <CharacterCard
-            key={`${character.name}-${index}`}
-            character={character}
-          />
-        ))}
+        {characters
+          .filter((character) => character.wizard)
+          .map((character, index) => (
+            <CharacterCard
+              key={`${character.name}-${index}`}
+              character={character}
+            />
+          ))}
       </div>
     </div>
   );

@@ -2,20 +2,27 @@ import React from "react";
 import "./CharacterCard.scss";
 
 function CharacterCard({ character }) {
-  if (!character.wizard) {
-    return null;
-  }
+  const getCharacterDetail = (property, fallback) =>
+    character[property] || fallback;
+
+  const imageSrc = getCharacterDetail("image", "/fallback.jpg");
+  const dateOfBirth = getCharacterDetail("dateOfBirth", "Unknown");
+  const house = getCharacterDetail("house", "Unknown");
+  const patronus = getCharacterDetail("patronus", "Don't have");
+  const ancestry = getCharacterDetail("ancestry", "Unknown");
+  const actor = character.actor;
+  const characterStatus = character.alive ? "Alive" : "Deceased";
 
   return (
     <div className="character-card">
-      <img src={character.image || "/fallback.jpg"} alt={character.name} />
+      <img src={imageSrc} alt={character.name} />
       <h2>{character.name}</h2>
-      <p>Date of Birth: {character.dateOfBirth || "Unknown"}</p>
-      <p>House: {character.house || "Unknown"}</p>
-      <p>Patronus: {character.patronus || "Don't have"}</p>
-      <p>Ancestry: {character.ancestry || "Unknown"}</p>
-      <p>Actor: {character.actor}</p>
-      <p>Character status: {character.alive ? "Alive" : "Deceased"}</p>
+      <p>Date of Birth: {dateOfBirth}</p>
+      <p>House: {house}</p>
+      <p>Patronus: {patronus}</p>
+      <p>Ancestry: {ancestry}</p>
+      <p>Actor: {actor}</p>
+      <p>Character status: {characterStatus}</p>
     </div>
   );
 }
